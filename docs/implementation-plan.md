@@ -1,51 +1,66 @@
-# AGENTS.md
+# Implementation Plan
 
-## Project Goal
-Build a simple Tic-Tac-Toe project to demonstrate how to use OpenCode effectively.
+This file defines the preferred implementation path for the Tic-Tac-Toe demo.
 
-This repository is for teaching.
-The goal is not to build the most advanced version of the game.
-The goal is to show a clean OpenCode workflow:
-- start with a small request
-- implement in small steps
-- use planning before refactoring
-- keep changes focused
-- add tests when the logic becomes important
+## Phase 1: Minimal Playable Version
+Create a minimal browser-based Tic-Tac-Toe game with:
+- a 3x3 board
+- two-player mode on the same device
+- alternating turns between X and O
+- a visible status message showing whose turn it is
 
-## Tech Constraints
-- Use plain HTML, CSS, and JavaScript only
-- Do not use frameworks
-- Do not add unnecessary dependencies
-- Keep the project runnable locally without a build step
-- Keep the project small and easy to explain in a live demo
+Keep the implementation simple.
+Do not optimize prematurely.
 
-## Code Style
-- Keep the code simple and beginner-friendly
-- Use clear and descriptive names
-- Prefer small, focused functions
-- Avoid overengineering
-- Avoid unnecessary abstraction
-- Add comments only when they improve clarity
+## Phase 2: Core Game Rules
+Add the essential game rules:
+- prevent moves in occupied cells
+- detect winning conditions
+- detect draw conditions
+- stop the game after a win or draw
+- show a clear result message
 
-## Architecture Guidance
-- Keep game logic separate from DOM updates when practical
-- Preserve existing behavior unless a change is explicitly requested
-- Prefer incremental changes over large rewrites
-- Keep the number of files small
+## Phase 3: Restart Flow
+Add a restart mechanism:
+- a button to restart the game
+- reset the board state
+- reset the current player to X
+- reset the game-over state
+- update the visible status correctly
 
-## UI Guidance
-- Keep the UI clean and minimal
-- Make the board easy to read and click
-- Clearly show the current player
-- Clearly show win and draw states
+## Phase 4: Refactor for Clarity
+Once the game works, improve maintainability:
+- separate game logic from DOM updates where practical
+- use smaller functions where useful
+- reduce duplication
+- preserve visible behavior
 
-## Testing Guidance
-- Add tests for core game logic when requested
-- Focus tests on move validation, win detection, and draw detection
-- Keep the test setup simple
+Before implementing this phase, it is valid to use a planning step first.
 
-## Behavior for Changes
-- Make focused edits
-- Avoid unrelated changes
-- Briefly explain significant changes
-- Do not introduce new tools or patterns unless explicitly asked
+## Phase 5: Add Tests
+Add tests for the core game logic.
+Priority test cases:
+- valid move handling
+- invalid move handling
+- horizontal win
+- vertical win
+- diagonal win
+- draw
+- no moves allowed after game over
+
+Keep the test setup simple and easy to run locally.
+
+## Phase 6: Optional Enhancement
+If time allows, add one small enhancement only.
+Examples:
+- scoreboard across rounds
+- random computer opponent
+- small UI polish
+
+Do not add multiple advanced features in one step.
+
+## Implementation Preference
+Prefer the simplest working version first.
+Then improve it through focused follow-up requests.
+
+This repository is for teaching iteration, not for showing off complexity.
